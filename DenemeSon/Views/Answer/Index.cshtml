@@ -1,0 +1,93 @@
+﻿
+@model IEnumerable<DenemeSon.Models.Answer>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/assets/js/jquery.min.js"></script>
+<link href="~/Content/assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<div class="card">
+    <div class="row mt-4">
+        <div class="col-12 col-lg-6 col-xl-12">
+            <div class="card bg-pinterest">
+                <div class="card-body">
+                    <a href="/Answer/Create">
+                        <div class="media">
+                            <div class="media-body text-center">
+                                <h4 class="text-white">Anket Cevaplama </h4>
+                                <span class="text-white">Anket  Cevaplamak İçin Tıklayın</span>
+                            </div>
+                            <div class="align-self-center"><span id="dash-chart-1"></span></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+      
+
+    </div><!--End Row-->
+
+
+    <div class="body">
+        <div class="table-responsive">
+            <table id="example" class="table table-bordered" cellpadding="0" style="width:100%">
+                <thead>
+                    <tr class="bg-dark" style="color:white">
+                        <td> Ad Soyad</td>
+            
+                        <td> Kullanıcı No</td>
+                        <td> Tamamlanma Durumu</td>
+                        <td>Eklenme Tarihi</td>
+                        <td>Ekleyen</td>
+                        <td>İşlemler</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.PersonName</td>
+                            <td>@item.PersonCode</td>
+                            <td>@item.IsComplete</td>
+                         
+                            <td>@item.CreateDate</td>
+                            <td>@item.CreateBy</td>
+                            <td>
+                                <a class="btn btn-dark text-white" href="/Answer/Detail/@item.Id"><i class="fa fa fa-pencil"></i></a>
+                             
+                            
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Content/assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js"></script>
+
+<script type="text/javascript">
+    var jQueryCalis = $.noConflict(true);
+    (function ($) {
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "lengthMenu": [[50, 50, -1], [50, 50, "Tümü"]],
+                "ordering": true,
+                "caseInsensitive": false,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+                }
+            });
+            var table = $('#example').DataTable();
+            $('#example').show();
+        });
+    })(jQueryCalis);
+</script>
+

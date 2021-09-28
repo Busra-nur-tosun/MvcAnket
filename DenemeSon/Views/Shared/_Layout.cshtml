@@ -1,0 +1,71 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title> TCDD Taşımacılık Bilgi İşlem Dairesi Başkanlığı </title>
+    <!--favicon-->
+    <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
+   
+    <!-- simplebar CSS-->
+    <link href="~/Content/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="~/Content/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="~/Content/assets/css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="~/Content/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="~/Content/assets/css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="~/Content/assets/css/app-style.css" rel="stylesheet" />
+
+</head>
+
+<body onload="info_noti()">
+
+    <!-- Start wrapper-->
+    <div id="wrapper" class="toggled">
+
+        @Html.Partial("_Topbar")
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                @RenderBody()
+            </div>
+        </div>
+        <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+
+        @Html.Partial("_Footer")
+
+
+
+    </div>
+
+            <!--End wrapper-->
+            <!-- Bootstrap core JavaScript-->
+            <script src="~/Content/assets/js/jquery.min.js"></script>
+            <script src="~/Content/assets/js/popper.min.js"></script>
+            <script src="~/Content/assets/js/bootstrap.min.js"></script>
+
+            <!-- simplebar js -->
+            <script src="~/Content/assets/plugins/simplebar/js/simplebar.js"></script>
+            <!-- waves effect js -->
+            <script src="~/Content/assets/js/waves.js"></script>
+            <!-- sidebar-menu js -->
+            <script src="~/Content/assets/js/sidebar-menu.js"></script>
+            <!-- Custom scripts -->
+            <script src="~/Content/assets/js/app-script.js"></script>
+            <!-- Index js -->
+            <script src="~/Content/assets/js/index.js"></script>
+
+</body>
+</html>

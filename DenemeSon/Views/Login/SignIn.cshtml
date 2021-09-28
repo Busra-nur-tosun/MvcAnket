@@ -1,0 +1,89 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>TCDD TAŞIMACILIK BİLGİ İŞLEM</title>
+    <!--favicon-->
+    <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap core CSS-->
+    <link href="~/Content/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="~/Content/assets/css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="~/Content/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Custom Style-->
+    <link href="~/Content/assets/css/app-style.css" rel="stylesheet" />
+
+</head>
+
+<body class="authentication-bg">
+    <!-- Start wrapper-->
+    <div id="wrapper">
+        <div class="card card-authentication1 mx-auto my-5 animated zoomIn bg-dark">
+            <div class="card-body">
+                <div class="card-content p-2">
+                    <div class="text-center">
+
+
+                        <img src="~/Content/assets/images/res.png" />
+                      
+                    </div>
+                    <div class="card-title text-uppercase text-center py-2 text-white">Giriş Yapınız</div>
+                    <form class="color-form" action="/Login/SignIn" method="post">
+                        <div class="form-group">
+                            <div class="position-relative has-icon-left">
+                                <label for="exampleInputUsername" class="sr-only">Kullanıcı No</label>
+                                <input type="text" id="exampleInputUsername" class="form-control" placeholder="Kullanıcı No" required>
+                                <div class="form-control-position">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="position-relative has-icon-left">
+                                <label for="exampleInputPassword" class="sr-only">Şifre</label>
+                                <input type="password" id="exampleInputPassword" class="form-control" placeholder="Şifre" required>
+                                <div class="form-control-position">
+                                    <i class="icon-lock"></i>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-danger btn-block waves-effect waves-light">Giriş Yapınız</button>
+                        </div>
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert-message">
+                                <span class="btn btn-danger btn-block waves-effect waves-light"><strong>işlem Hatalı!</strong> @ViewBag.Error </span>
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+    </div><!--wrapper-->
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <!-- waves effect js -->
+    <script src="~/Content/assets/js/waves.js"></script>
+    <!-- Custom scripts -->
+    <script src="~/Content/assets/js/app-script.js"></script>
+
+</body>
+</html>

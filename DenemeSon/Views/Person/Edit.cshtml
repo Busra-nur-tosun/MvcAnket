@@ -1,0 +1,35 @@
+﻿
+    @model DenemeSon.Models.Person
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">Kişi Ekleme Sayfası</div>
+        <hr>
+        <form action="/Person/Edit" method="post">
+           <input type="hidden" name="Id" value="@Model.Id"/>
+            <div class="form-group">
+                <label for="input-1">Adınız Soyadınız</label>
+                <input type="text" class="form-control" name="NameSurname"  value="@Model.NameSurname"id="input-1" required maxlength="50 " placeholder="Adınız ve Soyadınız">
+            </div>
+            <div class="form-group">
+                <label for="input-2">Kullanıcı No</label>
+                <input type="text" class="form-control" id="input-2" name="Code" value="@Model.Code" required maxlength="10" placeholder="Kullanıcı No">
+            </div>
+            <div class="form-group">
+                <label for="input-3">Personel Tip</label>
+                <input type="text" class="form-control" id="input-3" name="PersonalType" value="@Model.PersonalType" required maxlength="50" placeholder="Personel Tip">
+            </div>
+    
+
+            <div class="form-group">
+                <button type="submit" class=" btn btn-round btn-primary shadow-primary px-5">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

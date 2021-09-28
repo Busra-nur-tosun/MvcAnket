@@ -1,0 +1,132 @@
+﻿
+@model IEnumerable<DenemeSon.Models.Person>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/assets/js/jquery.min.js"></script>
+<link href="~/Content/assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<div class="card">
+    <div class="row mt-4">
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card bg-pinterest">
+                <div class="card-body">
+                    <a href="/Person/Create">
+                        <div class="media">
+                            <div class="media-body text-left">
+                                <h4 class="text-white">Kişi Ekleyin</h4>
+                                <span class="text-white">Kişi Eklemek İçin Tıklayın</span>
+                            </div>
+                            <div class="align-self-center"><span id="dash-chart-1"></span></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card bg-primary">
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body text-left">
+                            <h4 class="text-white">@Model.Count()</h4>
+                            <span class="text-white">Toplam Kişi Sayısı</span>
+                        </div>
+                        <div class="align-self-center"><span id="dash-chart-2"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--End Row-->
+
+
+    <div class="body">
+        <div class="table-responsive">
+            <table id="example" class="table table-bordered" cellpadding="0" style="width:100%">
+                <thead>
+                    <tr class="bg-dark" style="color:white">
+                        <td> Ad Soyad</td>
+                        <td>Personel Türü</td>
+                        <td> Kullanıcı No</td>
+                          @*<td> Şİfre</td>*@
+                        <td>Eklenme Tarihi</td>
+                        <td>Ekleyen</td>
+                        <td>İşlemler</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NameSurname</td>
+                            <td>@item.PersonalType</td>
+                          <td>@item.Code</td>
+                          @*  <td>@item.Password</td>*@
+                            <td>@item.CreateDate</td>
+                            <td>@item.CreateBy</td>
+                            <td>
+                                <a class="btn btn-dark text-white" href="/Person/Edit/@item.Id"><i class="fa fa fa-pencil"></i></a>
+                                <a class="btn btn-pinterest text-white" onclick="Delete(@item.Id)">
+                                    <i class="fa fa fa-trash-o text-white"></i>
+                                </a>
+                                <script>
+                                    function Delete(id) {
+                                        var link = "/Person/Delete/" + id;
+                                        jQuery("#modalLink").attr("href", link);
+                                        jQuery("#deleteperson").modal()
+                                    }
+                                </script>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Content/assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Content/assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js"></script>
+
+<script type="text/javascript">
+    var jQueryCalis = $.noConflict(true);
+    (function ($) {
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "lengthMenu": [[50, 50, -1], [50, 50, "Tümü"]],
+                "ordering": true,
+                "caseInsensitive": false,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+                }
+            });
+            var table = $('#example').DataTable();
+            $('#example').show();
+        });
+    })(jQueryCalis);
+</script>
+
+<div class="modal fade" id="deleteperson">
+    <div class="modal-dialog">
+        <div class="modal-content border-danger">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white"><i class="fa fa-star"></i> Kayıt Silme</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Kayıt silincektir emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Kapat</button>
+                <a class="btn btn-danger" id="modalLink"><i class="fa fa-check-square-o"></i> Sil</a>
+            </div>
+        </div>
+    </div>
+</div>

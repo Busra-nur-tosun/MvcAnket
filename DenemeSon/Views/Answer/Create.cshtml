@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DenemeSon.Models.Question>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int number =1;
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-title text-center">Anket Cevaplama Sayfası</div>
+        <hr>
+        @using (Html.BeginForm("Create", "Answer"))
+        {
+
+
+            <div class="form-group">
+                @Html.DropDownList("Code", (SelectList)ViewBag.Person, "Lütfen Kişi Seçiniz", new { @class = "form-control" })
+            </div>
+            foreach (var item in Model)
+            { <input name="@item.QuestionLine" id="Question_@item.Id" value="@item.QuestionLine" type="hidden" />
+                <span style="font-weight:bold">@number</span>
+                @item.QuestionLine
+                number++;
+                <br /> <br />
+
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="Answer1_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="KesinlikleKatılıyorum">
+                    <label class="custom-control-label" for="Answer1_@item.Id">Kesinlikle Katılıyorum</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="Answer2_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="Katılıyorum">
+                    <label class="custom-control-label" for="Answer2_@item.Id">Katılıyorum</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="Answer3_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="KısmenKatiliyorum">
+                    <label class="custom-control-label" for="Answer3_@item.Id">Kısmen Katılıyorum</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="Answer4_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="Katılmıyoryum">
+                    <label class="custom-control-label" for="Answer4_@item.Id">Katılmıyorum</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="Answer5_@item.Id" name="Answer_@item.Id" class="radio_@item.Id" value="KesinlikleKatılmıyorum">
+                    <label class="custom-control-label" for="Answer5_@item.Id">Kesinlikle Katılmıyorum</label>
+                </div>
+                <br /> <br />
+                <script>
+                    $(document).ready(function () {
+                    $('.radio_@item.Id').click(function () {
+                        var formdata = new FormData();
+                        var code = $('#Code').val();
+                        formdata.set("Code", code);
+                        var namesurname = $('#Code :selected').text();
+                        formdata.set("NameSurname", namesurname);
+                        var quesition = $('#Question_@item.Id').val();
+                        formdata.set("Question", quesition);
+                        var answer = $('input[name="Answer_@item.Id"]:checked').val;// cevap radşobutonun nameinden alınır
+                        formdata.set("Answer", answer);
+                        if (code == '') {
+                            $('#warningMessage').modal('show');
+                            return;
+                        }
+                        $.ajax({
+                            url: "/Answer/SendData",
+                            data: formdata,
+                            type: "POST",
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            successs: function (data) {
+                                if (data == "True") {
+                                }
+                            },
+                            error: function (data) {
+                                alert("Ekleme işlemi sırasında bir hata meydana geldi!");
+                            }
+                        });
+                        });
+                    });
+                </script>
+            }
+
+            <div class="form-group">
+                <button type="submit" class=" btn btn-round btn-primary shadow-primary px-5">Kaydet</button>
+            </div>
+        }
+    </div>
+</div>

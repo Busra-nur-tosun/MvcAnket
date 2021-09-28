@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DenemeSon.Models.AnswerLine>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int number = 1;
+}
+
+<div class="card">
+    <div class="card-body">
+        <br />
+        <h5 class="text-center">Anket Detay Sayfası</h5>
+        <div class="table-responsive">
+
+            @foreach (var item in Model)
+            {
+                <span><b>@number) </b> @item.Question</span>
+                <br /><b>@item.Answer</b>
+                <br /><br /><br />
+                number++;
+            }
+        </div>
+    </div>
+
+</div>

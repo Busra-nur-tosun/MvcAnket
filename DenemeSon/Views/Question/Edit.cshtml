@@ -1,0 +1,24 @@
+﻿ 
+@model DenemeSon.Models.Question
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">Soru Düzenleme Sayfası</div>
+        <hr>
+        <form action="/Question/Create">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label for="input-1">Soru</label>
+                <input type="text" class="form-control" name="QuestionLine" value="@Model.QuestionLine" id="input-1" required maxlength="250 " placeholder="Soru Giriniz">
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class=" btn btn-round btn-primary shadow-primary px-5">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
