@@ -11,7 +11,7 @@ namespace DenemeSon.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    //"Answer" sınıfının cevapların genel bilgilerini tuttuğu ana sınıf 
     public partial class Answer
     {
         public int Id { get; set; }
