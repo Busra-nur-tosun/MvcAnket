@@ -10,11 +10,16 @@ namespace DenemeSon.Controllers
     public class QuestionController : Controller
     {
         AnketEntities db = new AnketEntities();
+        //Bu işlev, veritabanındaki tüm soru nesnelerini alarak bunları bir liste olarak görüntülemeyi amaçlıyor.
+        //Bu liste daha sonra bir görünüme (View) iletiliyor.
         public ActionResult Index()
         {
             var model = db.Question.ToList();
             return View(model);
         }
+        /*Bu işlev, yeni bir soru nesnesi oluşturmayı amaçlıyor. Eğer soru satırı (QuestionLine) boş değilse, yeni sorunun oluşturulma tarihini ve 
+        kim tarafından oluşturulduğunu ayarlıyor, 
+        veritabanına ekliyor ve ardından Index görünümüne yönlendiriyor.*/
         public ActionResult Create(Question question)
         {
             if (question.QuestionLine != null)
@@ -32,6 +37,8 @@ namespace DenemeSon.Controllers
 
 
         }
+        /*işlev, belirli bir sorunun düzenleme işlemini gerçekleştirmeyi amaçlıyor. 
+        Eğer geçerli bir "Id" değeri sağlanırsa, ilgili soruyu bulup düzenlemek için veritabanından çekiyor ve düzenleme görünümüne yönlendiriyor.*/
         public ActionResult Edit(int? Id)
         {
             if (Id == null || Id == 0)
@@ -42,6 +49,8 @@ namespace DenemeSon.Controllers
             return View(model);
 
         }
+        /*Bu işlev, düzenlenmiş bir soruyu veritabanında güncellemeyi amaçlıyor. Sorunun değiştirilmiş alanlarını güncelliyor, "CreateBy" ve "CreateDate" alanlarını 
+        değiştirmemek için bu alanlara ait değişiklikleri geri alıyor ve düzenlenmiş sorunun güncellenmiş tarih ve kim tarafından güncellendiğini ayarlıyor.*/
         [HttpPost]
         public ActionResult Edit(Question question)
 
@@ -55,6 +64,8 @@ namespace DenemeSon.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        /*Bu işlev, belirli bir soruyu veritabanından silmeyi amaçlıyor. 
+        Eğer geçerli bir "Id" sağlanırsa, ilgili soruyu buluyor, veritabanından siliyor ve Index görünümüne yönlendiriyor.*/
         public ActionResult Delete(int? Id)
         {
             if (Id == null || Id == 0)
