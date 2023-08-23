@@ -13,7 +13,7 @@ namespace DenemeSon.Models
     using System.Collections.Generic;
     
     public partial class AnswerLine
-    {
+    { //"AnswerLine" sınıfının ise cevapların her bir soru için ayrıntılarını (yanıtlarını) tuttuğu 
         public int Id { get; set; }
         public Nullable<int> AnswerId { get; set; }
         public string Question { get; set; }
