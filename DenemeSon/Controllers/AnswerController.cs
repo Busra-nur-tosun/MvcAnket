@@ -16,6 +16,8 @@ namespace DenemeSon.Controllers
             var model = db.Answer.ToList();
             return View(model);
         }
+        /*Bu işlev, yeni bir "Answer" nesnesi oluşturmayı amaçlıyor. Eğer bir "Code" parametresi verilmezse, "Person" verilerini çekip, bir kişi seçimi yapmayı sağlıyor. 
+        Ayrıca "Question" verilerini alarak bir soru oluşturma işlemi gerçekleştiriliyor. Eğer "Code" verilirse, "Index" eylemine yönlendiriliyor.*/
         public ActionResult Create(string Code)
         {
             if (Code == null)
@@ -41,6 +43,9 @@ namespace DenemeSon.Controllers
            
           
         }
+        /*Bu işlev, kullanıcıdan gelen "AnswerModel" verilerini alarak veritabanında ilgili "Answer" nesnesini güncelleme veya yeni 
+        bir nesne oluşturma işlemini gerçekleştiriyor. Bu, kullanıcının verilen ay içerisinde daha önce cevapladığı bir "Answer" nesnesi varsa güncelleme
+        yapmayı amaçlıyor. Aksi halde yeni bir "Answer" nesnesi oluşturup "AnswerLine" verilerini ekliyor.*/
         public string SendData(AnswerModel answerModel)
 
         {
@@ -65,6 +70,8 @@ namespace DenemeSon.Controllers
             }
             return "True";
         }
+        /*Bu işlev, "AnswerLine" verilerini kaydetmeyi amaçlıyor. Eğer veritabanında ilgili "AnswerLine" nesnesi varsa güncelleme yapmayı,
+        yoksa yeni bir nesne oluşturmayı sağlıyor.*/
         public void SaveAnswerLine(string question,string answer,int answerId)
         {
             var model = db.AnswerLine.FirstOrDefault(m => m.AnswerId == answerId && m.Question == question);
