@@ -1,4 +1,6 @@
-﻿using DenemeSon.Models;
+//Bu kod parçası temel CRUD (Create, Read, Update, Delete) işlemlerini gerçekleştirir
+
+using DenemeSon.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
