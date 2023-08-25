@@ -16,8 +16,10 @@ namespace DenemeSon.Controllers
             var model = db.Answer.ToList();
             return View(model);
         }
-        /*Bu işlev, yeni bir "Answer" nesnesi oluşturmayı amaçlıyor. Eğer bir "Code" parametresi verilmezse, "Person" verilerini çekip, bir kişi seçimi yapmayı sağlıyor. 
-        Ayrıca "Question" verilerini alarak bir soru oluşturma işlemi gerçekleştiriliyor. Eğer "Code" verilirse, "Index" eylemine yönlendiriliyor.*/
+        /*Bu işlev, yeni bir "Answer" nesnesi oluşturmayı amaçlıyor. Eğer bir "Code" parametresi verilmezse, 
+        "Person" verilerini çekip, bir kişi seçimi yapmayı sağlıyor. 
+        Ayrıca "Question" verilerini alarak bir soru oluşturma işlemi gerçekleştiriliyor.
+        Eğer "Code" verilirse, "Index" eylemine yönlendiriliyor.*/
         public ActionResult Create(string Code)
         {
             if (Code == null)
