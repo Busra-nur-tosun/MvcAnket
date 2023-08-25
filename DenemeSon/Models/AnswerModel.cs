@@ -7,7 +7,7 @@ namespace DenemeSon.Models
 {
     public class AnswerModel
     {
-        public string Code { get; set; }
+        public string Code { get; set; }// her cevabın benzersiz tanımlanması için 
 
         public string NameSurname { get; set; }
 
