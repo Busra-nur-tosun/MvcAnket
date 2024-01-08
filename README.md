@@ -48,6 +48,12 @@ Projede, kişiler, sorular ve cevaplar için veritabanı tabloları bulunmaktad�
 - Bu README dosyası, projenin temel özelliklerini anlatmak içindir. Daha fazla detay ve geliştirmeler projenin gereksinimlerine göre eklenmelidir.
 - Geliştirme sürecinde herhangi bir sorunla karşılaşırsanız, [GitHub Issues](https://github.com/KullaniciAdi/ProjeAdi/issues) bölümünden yardım isteyebilirsiniz.
 
+[![WhatsApp Video 2024-01-08 at 09 26 38 - frame at 0m21s](https://github.com/Busra-nur-tosun/MvcAnket/assets/74898825/206a0f3f-b414-4291-9eaa-47ecc4f02aab)
+
+- ](https://github.com/Busra-nur-tosun/MvcAnket/assets/74898825/4102e1b1-a360-4daf-b082-6ae5255fd643
+
+![WhatsApp Video 2024-01-08 at 09 26 38 - frame at 0m21s](https://github.com/Busra-nur-tosun/MvcAnket/assets/74898825/206a0f3f-b414-4291-9eaa-47ecc4f02aab)
+)https://github.com/Busra-nur-tosun/MvcAnket/assets/74898825/4102e1b1-a360-4daf-b082-6ae5255fd643
+
 ![WhatsApp Video 2024-01-08 at 09 26 38 - frame at 0m21s](https://github.com/Busra-nur-tosun/MvcAnket/assets/74898825/206a0f3f-b414-4291-9eaa-47ecc4f02aab)
 
-- 
