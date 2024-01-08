@@ -6,8 +6,8 @@ Proje, CRUD operasyonları kullanarak kişileri eklemenizi, güncellemenizi, sil
 
 ## Proje Yapısı
 
-- **Controllers:** MVC'nin Controller sınıflarını içerir. Örneğin, `PersonController` ve `SurveyController` gibi.
-- **Models:** MVC'nin Model sınıflarını içerir. `Person` ve `Survey` gibi modeller burada yer alır.
+- **Controllers:** MVC'nin Controller sınıflarını içerir. Örneğin, `PersonController`  gibi.
+- **Models:** MVC'nin Model sınıflarını içerir. `AnswerModel` gibi modeller burada yer alır.
 - **Views:** MVC'nin View dosyalarını içerir. HTML ve Razor kodları içerir ve kullanıcı arayüzünü temsil eder.
 
 ## Veritabanı
@@ -40,7 +40,6 @@ Projede, kişiler, sorular ve cevaplar için veritabanı tabloları bulunmaktad�
 1. Projeyi bilgisayarınıza indirin.
 2. Visual Studio veya başka bir geliştirme ortamında projeyi açın.
 3. Projeyi derleyin ve çalıştırın.
-4. Tarayıcınızda `https://localhost:5001` adresine giderek uygulamayı kullanmaya başlayın.
 
 ## Notlar
 
